@@ -43,12 +43,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setSession(session);
         setUser(session?.user ?? null);
         
-        // Only fetch user role on initial auth state change, not on every tab switch
-        if (session?.user && !hasInitializedRef.current) {
+        // Fetch user role when session changes (login/signup)
+        if (session?.user) {
           setTimeout(() => {
-            fetchUserRole(session.user!.email!);
+            fetchUserRole(session.user!.email!, false); // Don't show loading on auth state change
           }, 0);
-        } else if (!session?.user) {
+        } else {
           setUserRole(null);
           setUserId(null);
         }
