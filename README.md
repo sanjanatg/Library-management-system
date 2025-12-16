@@ -116,4 +116,8 @@ src/
 
 ---
 
-Built with ❤️ using React and Supabase.
+## 📚 Additional Documentation
+
+- [Implementation Details](./IMPLEMENTATION.md) - Technical implementation and architecture decisions
+- [Features Implemented](./FEATURES_IMPLEMENTED.md) - Complete list of all implemented features
+- [Quick Reference](./QUICK_REFERENCE.md) - Quick guide for common tasks and operations
