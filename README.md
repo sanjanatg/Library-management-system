@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# Library Management System
 
-## Project info
+A modern, full-stack Library Management System built with React, TypeScript, and Supabase. This application provides a seamless experience for both students and librarians to manage library resources, track borrowed books, and handle fines.
 
-**URL**: https://lovable.dev/projects/1b6443c0-97d9-46c7-af1e-9283adf7737f
+## 🚀 Tech Stack
 
-## How can I edit this code?
+### Frontend
+- **Framework**: [React](https://react.dev/) (v18) with [Vite](https://vitejs.dev/) for fast build and development.
+- **Language**: [TypeScript](https://www.typescriptlang.org/) for type safety and developer experience.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) for utility-first styling.
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) for accessible and customizable components.
+- **Icons**: [Lucide React](https://lucide.dev/) for beautiful icons.
+- **Routing**: [React Router DOM](https://reactrouter.com/) for client-side routing.
+- **State Management**: [TanStack Query](https://tanstack.com/query/latest) for efficient server state management.
+- **Charts**: [Recharts](https://recharts.org/) for data visualization in dashboards.
 
-There are several ways of editing your application.
+### Backend & Database
+- **Platform**: [Supabase](https://supabase.com/) (Firebase alternative).
+- **Database**: PostgreSQL.
+- **Authentication**: Supabase Auth with Row Level Security (RLS).
+- **Security**: Comprehensive RLS policies to ensure data privacy and role-based access control.
 
-**Use Lovable**
+## ✨ Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1b6443c0-97d9-46c7-af1e-9283adf7737f) and start prompting.
+### 🔐 Authentication & Security
+- **Role-Based Access Control (RBAC)**: Distinct login flows and dashboards for **Students** and **Librarians**.
+- **Secure Signup**:
+  - **Students**: Restricted to specific email domains (`@cambridge.edu.in`, `@cambridge.edu.com`). Requires University Serial Number (USN).
+  - **Librarians**: Role-based signup.
+- **Protected Routes**: Prevents unauthorized access to dashboard pages.
+- **Row Level Security (RLS)**: Database policies ensure students can only view their own data, while librarians have broader management access.
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🎓 Student Dashboard
+- **Personalized View**: See personal details (Name, USN, Department).
+- **Borrowed Books**: View currently borrowed books with due dates.
+- **Fine Tracking**: Check outstanding fines and payment status.
+- **Profile Management**: View student profile information.
 
-**Use your preferred IDE**
+### 📚 Librarian Dashboard
+- **Book Management**:
+  - Add new books to the library inventory.
+  - Update book details (copies, author, category).
+  - Remove books from the system.
+- **Student Management**:
+  - View all registered students.
+  - Add new students manually.
+  - Update student details.
+- **Issue & Return**:
+  - Issue books to students.
+  - Process book returns.
+  - Automatically calculate fines for late returns.
+- **Fine Management**: Track and manage student fines.
+- **Analytics**: Visual charts showing book distribution and usage.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Setup & Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Follow these steps to run the project locally.
 
-Follow these steps:
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/sanjanatg/Library-management-system.git
+    cd Library-management-system
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+3.  **Environment Configuration**
+    Create a `.env` file in the root directory and add your Supabase credentials:
+    ```env
+    VITE_SUPABASE_URL=your_supabase_project_url
+    VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+    ```
+
+4.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Build for production**
+    ```bash
+    npm run build
+    ```
+
+## 📂 Project Structure
+
+```
+src/
+├── api/            # API functions for Supabase interactions
+├── components/     # Reusable UI components (Buttons, Inputs, etc.)
+│   ├── dashboard/  # Specific components for Student/Librarian dashboards
+│   └── ui/         # shadcn/ui components
+├── contexts/       # React Contexts (AuthContext for global auth state)
+├── hooks/          # Custom React hooks (use-toast, etc.)
+├── integrations/   # Third-party integrations (Supabase client)
+├── pages/          # Main application pages (Auth, Dashboard, Index)
+├── utils/          # Utility functions
+└── App.tsx         # Main application entry point with routing
 ```
 
-**Edit a file directly in GitHub**
+## 🛡️ Database Schema (Supabase)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **STUDENT**: Stores student profiles (USN, Name, Email, Dept, Year).
+- **Librarian**: Stores librarian profiles.
+- **BOOKS**: Library inventory.
+- **ISSUE**: Tracks book transactions (Issue Date, Return Date, Status).
+- **FINE**: Records fines associated with issues.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1b6443c0-97d9-46c7-af1e-9283adf7737f) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built with ❤️ using React and Supabase.
