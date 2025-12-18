@@ -2,6 +2,8 @@
 
 A modern, full-stack Library Management System built with React, TypeScript, and Supabase. This application provides a seamless experience for both students and librarians to manage library resources, track borrowed books, and handle fines.
 
+<img width="1462" height="722" alt="image" src="https://github.com/user-attachments/assets/e33daa97-18cf-40e5-8e1c-fa35e5280fb0" />
+
 ## 🚀 Tech Stack
 
 ### Frontend
