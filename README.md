@@ -109,6 +109,7 @@ src/
 ```
 
 ## 🛡️ Database Schema (Supabase)
+<img width="1272" height="693" alt="image" src="https://github.com/user-attachments/assets/af14c581-e9cf-410b-bf6b-302f6273b6a3" />
 
 - **STUDENT**: Stores student profiles (USN, Name, Email, Dept, Year).
 - **Librarian**: Stores librarian profiles.
